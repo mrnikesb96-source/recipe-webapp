@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}DevFitness{% endblock %}</title>
+        </title>
+        <link 
+            rel="icon"
+            type="image/x-icon"
+            href="{{ url_for('static',filename='assets/DevFitness_favicon.ico') }}"
+        >
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=dinner_dining" />
+        <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+        
+    </head>
+    <body class="h-screen">
+        <div class="flex flex-col h-full w-full px-8 pb-8 justify-between">
+            <!--Navbar/header Section-->
+            <div class="flex justify-between items-end h-16 ">
+                <a href="#">
+                    <img src="/static/assets/img/DevRecipe.svg" alt="Dev Recipe logo" class="flex h-12">
+                </a>
+                <div class="flex gap-4 text-md">
+                    <a href="#" class="hover:text-black/60">Recipes</a>
+                    <a href="#" class="hover:text-black/60">Browse</a>
+                    <a href="#" class="hover:text-black/60">About</a>
+                </div>
+                <div class="flex gap-4 text-md">
+                    <a href="#" class="rounded-2xl border px-4  hover:text-black/60 hover:shadow-lg">Log In</a>
+                    <a href="#"class="bg-black text-white rounded-2xl border px-4 hover:shadow-lg ">Sign Up →</a>
+                </div>
+            </div>
+            <!--Divider-->
+            <hr class="border-0 border-t-2 border-black/20  my-4 w-full rounded-4xl">
+            <!-- Main Section--> 
+            <div class="flex flex-col-2 h-full w-full ">
+                <div class="flex flex-col flex-1 pt-30 ">
+                    <h2 class="text-black/60 font-medium">Personal Recipe Storage</h2>
+                    <h1 class="font-bold text-5xl py-4">
+                        Store, Discover,<br> 
+                        and Randomly select <br>
+                        your favorite recipes
+                    </h1>
+                    <p class="font-medium py-4 text-black/60">
+                        Tired of bookmarking exciting tiktok recipes and <br>
+                        forgetting they exist a week later? Register for free <br>
+                        and create a roladex of your favorite meals.
+                    </p>
+                </div>
+                <div class="flex-1 relative">
+                    <!-- Bottom card -->
+                    <div class="absolute left-40 top-8 w-3/4 h-3/4 rounded-2xl  scale-60 z-0">
+                        <div class="relative h-full w-full group">
+                            <img class="object-cover overflow-hidden rounded-4xl shadow-2xl" src="/static/assets/img/burger_salad.webp" alt="burger salad">
+                            <div class="absolute inset-0 bg-transparent group-hover:bg-gradient-to-b group-hover:from-black/50 group-hover:to-transparent rounded-4xl transition-all duration-500"></div>
+                        </div>
+                    </div>
+                    <!-- Middle card -->
+                    <div class="absolute top-18 left-20  w-3/4 h-3/4  rounded-2xl scale-90 z-10">
+                        <div class="relative w-full h-full group">
+                            <img class="object-cover overflow-hidden h-full w-full rounded-4xl shadow-2xl" src="/static/assets/img/vodka_pasta.webp" alt="vodka gnocchi">
+                            <div class="absolute inset-0 bg-transparent group-hover:bg-gradient-to-b group-hover:from-black/50 group-hover:to-transparent rounded-4xl transition-all duration-500"></div>
+                        </div>
+                    </div>
+                    <!-- Top card -->
+                    <div class="absolute top-18 left-0 w-3/4 h-3/4 rounded-xl  z-20">
+                        <div class="relative w-full h-full group">
+                            <img class="object-cover overflow-hidden h-full w-full rounded-4xl shadow-2xl" src="/static/assets/img/mory_potato.jpg" alt="Baked sweet potato with ground beef">
+                            <div class="absolute inset-0 bg-transparent group-hover:bg-gradient-to-b group-hover:from-black/50 group-hover:to-transparent rounded-4xl transition-all duration-500"></div>
+                            <div class="absolute inset-0 flex flex-col justify-top p-6">
+                                <h2 class="text-white font-bold drop-shadow-2xl">Loaded Sweet Potato <br>
+                                    w/ Spiced Beef and Hot <br>
+                                    Honey 
+                                </h2>
+                                <div class="flex flex-col h-full justify-end">
+                                    <hr class="w-full border-t-2 border-white rounded mt-8 mb-2">
+                                    <div class="flex justify-beginning">
+                                        <p class="text-white pr-14 drop-shadow-xl">
+                                            <span class="font-bold">Author Rating</span><br> 4.5/10 </p>
+                                        <p class="text-white pl-8 drop-shadow-4xl">
+                                            <span class="font-bold">Chef</span><br>Mory Byron
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>    
+                    </div>
+                </div>
+             </div>
+             <div class="flex justify-beginning mt-4">
+                <div class="mr-8 space-y-2">
+                    <hr class=" w-full border-t-2 border-black/20 rounded-4xl">
+                    <h2 class="font-semibold">↺ Dinner Selector</h2>
+                    <p class="text-sm text-black/60"> 
+                    Randomize dinner selection for<br> the
+                    day/week.
+                    </p>
+                    <a href="#" class="text-sm font-semibold underline underline-offset-4 hover:text-black/60">Demo →</a>
+                </div>
+                <div class="mx-28 space-y-2">
+                    <hr class=" w-full border-t-2 border-black/20 rounded-4xl ">
+                    <h2 class="font-semibold ">ᯤ Browse my Catalog</h2>
+                    <p class="text-black/60 text-sm"> 
+                    Check out the ever-growing collection<br>
+                    of recipes I try for inspiration. 
+                    </p>
+                    <a href="#" class="text-sm font-semibold underline underline-offset-4 hover:text-black/60">Demo →</a>
+                </div>
+                <div class="ml-18 space-y-2">
+                    <hr class=" w-full border-t-2 border-black/20 rounded-4xl ">
+                    <h2 class="font-semibold  mr-16 ">☰ Sort</h2>
+                    <p class="text-black/60 text-sm"> 
+                    Sort and search your recipes by calorie,<br>
+                    cooking time, and protein type.
+                    </p>
+                    <a href="#" class="text-sm font-semibold underline underline-offset-4 hover:text-black/60">Demo →</a>
+                </div>
+             </div>
+        </div>
+        <!-- Modal Login/Register overlay-->
+        <div class="fixed inset-0 bg-black/50 backdrop:-blur-sm flex items-center justify-center z-50">
+            <div class="bg-white rounded-2xl shadow-2xl p-4 w-full max-w-md min-h-[300px] max-h-[80vh] flex flex-col ">
+                <!--Add Jinja logic here to control which text appears-->
+                <div class="relative flex h-16">
+                    <img src="/static/assets/img/mini_logo.svg" class="h-16 absolute left-1/2 -translate-x-1/2">
+                    <div>
+                        <a href="#" class="absolute right-1  text-black/60 hover:shadow-2xl text-3xl">&times</a>
+                    </div>
+                </div>
+                <div class="flex flex-col justify-center items-center">
+                    <h1 class="text-lg font-medium mb-4">Welcome to DevRecipe!</h1>
+                    <h2 class="text-black/60 text-center mb-6">
+                        Register to create an accountand start storing<br>
+                        your favorite recipes today!
+                    </h2>
+                    <form method="POST" action="{{ url_for('register') }}">
+                         <div class="flex flex-col space-y-8  w-90">
+                            <label for="email" class="mb-1 text-sm font-medium text-gray-700">Email</label>
+                            <input 
+                            id="email" 
+                            type="email" 
+                            name="email"
+                            placeholder="you@example.com"
+                            class="px-3 py-2  w-full bg-black/3 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-300/40"
+                            required
+                            >
+                            <!-- Example error placeholder -->
+                            <p class="text-red-500 text-xs mt-1 hidden">Please enter a valid email</p>
+                        </div>
+
+                        <!-- Password field -->
+                        <div class="flex flex-col">
+                            <label for="password" class="mb-1 text-sm font-medium text-gray-700">Password</label>
+                            <input 
+                            id="password" 
+                            type="password" 
+                            name="password"
+                            placeholder="••••••••"
+                            class="px-3 py-2 bg-black/3 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-300/40"
+                            required
+                            >
+                            <!-- Example error placeholder -->
+                            <p class="text-red-500 text-xs mt-1 hidden">Password must be at least 6 characters</p>
+                        </div>
+
+                        <!-- Submit button -->
+                        <button 
+                            type="submit" 
+                            class="w-full bg-black text-white py-2 rounded-4xl hover:bg-orange-400/60 transition mt-14"
+                        >
+                            Register
+                        </button>
+                    </form>
+                    <div class="flex justify-center items-center mt-8 mb-4">
+                        <p class="text-black/60 text-sm">
+                            Already have an account?
+                        </p>
+                        <a href="#" class="font-semibold text-sm pl-1 hover:text-orange-400/60">Log in</a>
+                    </div>
+                </div>
+            </div>
+        </div> 
+    </body>
+</html>

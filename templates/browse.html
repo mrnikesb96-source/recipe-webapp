@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}DevFitness{% endblock %}</title>
+        <link 
+            rel="icon"
+            type="image/x-icon"
+            href="{{ url_for('static',filename='assets/DevFitness_favicon.ico') }}"
+        >
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
+        <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+        <style>
+            /* Custom Tailwind-like class for text outline */
+            .material-symbols-outlined {
+            font-variation-settings:
+            'FILL' 0,
+            'wght' 300,
+            'GRAD' 0,
+            'opsz' 24
+            }
+        </style>
+    </head>
+    <body class="h-full">
+        <div class="flex flex-col px-8 pb-4 justify-between">
+            <!--Navbar/header Section-->
+            <div class="flex justify-between items-end h-16 mb-2">
+                <a href="#">
+                    <img src="/static/assets/img/DevRecipe.svg" alt="Dev Recipe logo" class="flex h-12">
+                </a>
+                <div class="flex gap-4 text-md">
+                    <a href="#" class="hover:text-black/60">Recipes</a>
+                    <a href="#" class="hover:text-black/60">Browse</a>
+                    <a href="#" class="hover:text-black/60">About</a>
+                </div>
+                <div class="flex gap-4 text-md">
+                    <a href="#" class="rounded-2xl border px-4  hover:text-black/60 hover:shadow-lg">Log In</a>
+                    <a href="#"class="bg-black text-white rounded-2xl border px-4 hover:shadow-lg ">Sign Up →</a>
+                </div>
+            </div>
+            <!--Divider-->
+            <hr class="border-0 border-t-2 border-black/20 w-full mt-4 rounded-4xl">
+        </div>
+        <div class="flex h-70 mx-8 bg-[url('/static/assets/img/spaghetti_cover.jpg')] bg-cover bg-[-0px_-50px] rounded-2xl justify-end items-center">
+            <h1 class="text-white text-4xl font-semibold mr-6 z-10">
+                Explore<br>My Faves
+            </h1>
+        </div>
+        <!-- Selection links-->
+        <div class="flex flex-col justify-center py-4 space-y-6">
+            <h2 class="flex text-xl font-semibold justify-center">
+                What To <span class="text-[#ff9f1c] ml-1 mr-0.5">Cook</span>? 
+            </h2>
+            <div class="flex justify-center gap-4">
+                <div class="flex justify-center">
+                <a class="bg-black/6 font-medium text-sm py-2 px-3 rounded-4xl flex items-center hover:cursor-pointer hover:shadow-lg">
+                    <span class="material-symbols-outlined text-[#227c9d]/40 mr-2">
+                        dinner_dining
+                    </span>
+                    Main Courses
+                </a>
+                </div>
+                <div class="flex justify-center">
+                    <a class="bg-black/6 font-medium text-sm py-2 px-3 rounded-4xl flex items-center hover:cursor-pointer hover:shadow-lg">
+                        <span class="material-symbols-outlined text-[#17c3b2]/40 mr-2">
+                            udon
+                        </span>
+                        Appetizers
+                    </a>
+                </div>
+                <div class="flex justify-center">
+                    <a class="bg-black/6 font-medium text-sm py-2 px-3 rounded-4xl flex items-center hover:cursor-pointer hover:shadow-lg">
+                        <span class="material-symbols-outlined text-[#fe6d73]/40 mr-2">
+                            icecream
+                        </span>
+                        Desserts
+                    </a>
+                </div>
+                <div class="flex justify-center">
+                    <a class="bg-black/6 font-medium text-sm py-2 px-3 rounded-4xl flex items-center hover:cursor-pointer hover:shadow-lg">
+                        <span class="material-symbols-outlined text-[#ffcb77]/40 mr-2">
+                            electric_bolt
+                        </span>
+                        Quick-Hitters
+                    </a>
+                </div>
+            
+            </div>
+        </div>
+        <!--Recipe Cards-->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 p-8 ">
+            <div class="rounded-2xl shadow p-4 flex flex-col bg-black/6">
+                <h2 class="text-lg font-semibold pb-4">Volcano Shrimp over Rice</h2>
+                <img class="rounded-lg w-full h-90 object-cover mb-4" src="/static/assets/img/volcano-shrimp.webp">
+                <a href="#" class="text-white bg-black rounded-2xl p-2 text-center mt-auto mb-2 hover:shadow-lg">See full recipe </a>
+                <div class="flex justify-end gap-4 ">
+                    <a class="hover:text-black/60 " href="https://moribyan.com/">Credit: @Moribyan</a>
+                </div>
+                
+            </div>
+            <div class="rounded-2xl shadow p-4 flex flex-col bg-black/6">
+                <h2 class="text-lg font-semibold pb-4">Poutine</h2>
+                <img class="rounded-lg object-cover w-full h-90 mb-4" src="/static/assets/img/poutine.webp">
+                <a href="#" class="text-white bg-black rounded-2xl p-2 text-center mt-auto mb-2 hover:shadow-lg">See full recipe </a>
+                <div class="flex justify-end gap-4 ">
+                    <a class="hover:text-black/60" href="https://moribyan.com/">Credit: @Moribyan</a>
+                </div>
+            </div>
+            <div class="rounded-2xl shadow p-4 flex flex-col bg-black/6 ">
+                <h2 class="text-lg font-semibold pb-4">Chicken Cutlet Caesar Sandwich</h2>
+                <img class="rounded-lg object-cover w-full h-90 mb-4" src="/static/assets/img/cutlet_sandwich.webp">
+                <a href="#" class="text-white bg-black rounded-2xl p-2 text-center mt-auto mb-2 hover:shadow-lg">See full recipe </a>
+                <div class="flex justify-end gap-4 ">
+                    <a class="hover:text-black/60" href="https://moribyan.com/">Credit: @Moribyan</a>
+                </div>
+            </div>
+            <div class="rounded-2xl shadow p-4 flex flex-col bg-black/6">
+                <h2 class="text-lg font-semibold pb-4">Chicken Swarma Potato Bowl</h2>
+                <img class="flex rounded-lg object-cover w-full h-90 mb-4" src="/static/assets/img/shwarma.jpg">
+                <a href="#" class="text-white bg-black rounded-2xl p-2 text-center mt-auto mb-2 hover:shadow-lg">See full recipe </a>
+                <div class="flex justify-end gap-4 ">
+                    <a class="hover:text-black/60" href="https://moribyan.com/">Credit: @Moribyan</a>
+                </div>
+            </div>
+            <div class="rounded-2xl shadow p-4 flex flex-col bg-black/6 ">
+                <h2 class="text-lg font-semibold pb-4">BBQ Salmon Tacos</h2>
+                <img class="flex rounded-lg object-cover w-full h-90 mb-4" src="/static/assets/img/salmon_tacos.webp">
+                <a href="#" class="text-white bg-black rounded-2xl p-2 text-center mt-auto mb-2 hover:shadow-lg">See full recipe </a>
+                <div class="flex justify-end gap-4 ">
+                    <a class="hover:text-black/60" href="https://moribyan.com/">Credit: @Moribyan</a>
+                </div>
+            </div>
+            <div class="rounded-2xl shadow p-4 flex flex-col bg-black/6">
+                <h2 class="text-lg font-semibold pb-4">Beef & Broccoli Stir Fry</h2>
+                <img class="flex rounded-lg object-cover w-full mb-4 h-90" src="/static/assets/img/beef_broccoli.webp">
+                <a href="#" class="text-white bg-black rounded-2xl p-2 text-center mt-auto mb-2 hover:shadow-lg">See full recipe </a>
+                <div class="flex justify-end gap-4 ">
+                    <a class="hover:text-black/60" href="https://moribyan.com/">Credit: @Moribyan</a>
+                </div>
+            </div>
+            <div class="rounded-2xl shadow p-4 flex flex-col bg-black/6">
+                <h2 class="text-lg font-semibold pb-4">Beef & Broccoli Stir Fry</h2>
+                <img class="flex rounded-lg object-cover w-full mb-4 h-90" src="/static/assets/img/beef_broccoli.webp">
+                <a href="#" class="text-white bg-black rounded-2xl p-2 text-center mt-auto mb-2 hover:shadow-lg">See full recipe </a>
+                <div class="flex justify-end gap-4 ">
+                    <a class="hover:text-black/60" href="https://moribyan.com/">Credit: @Moribyan</a>
+                </div>
+            </div> 
+        </div>
+        <div class="flex h-20 justify-center">
+            <p class="text-black/40">
+                1/ <span class="text-black font-semibold">4</span>
+            </p>
+            <a class="ml-4 text-[#ff9f1c] font-semibold hover:text-shadow-md" href="#">
+                <span class="material-symbols-outlined">arrow_right_alt</span>
+                
+            </a>
+        </div>
+    </body>
+</html>
