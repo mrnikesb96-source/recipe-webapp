@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}DevFitness{% endblock %}</title>
+        <link 
+            rel="icon"
+            type="image/x-icon"
+            href="{{ url_for('static',filename='assets/DevFitness_favicon.ico') }}"
+        >
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+        <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+        <style>
+            /* Custom Tailwind-like class for text outline */
+            .material-symbols-outlined {
+            font-variation-settings:
+            'FILL' 0,
+            'wght' 300,
+            'GRAD' 0,
+            'opsz' 24
+            }
+        </style>
+    </head>
+    <body class="h-screen"
+        data-show-login="{{ 'true' if show_login_overlay else 'false' }}"
+        data-show-register="{{ 'true' if show_register_overlay else 'false' }}">
+        <div class="flex flex-col h-full w-full px-8 pb-8 justify-between">
+
+        </div>
+        {% include "header.html" %}
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                <div id="flash-messages" class="fixed top-4 right-4">
+                {% for category, message in messages %}
+                    <div class="
+                        p-3 rounded mb-2
+                        {% if category == 'success' %} bg-green-200 text-green-800 {% endif %}
+                        {% if category == 'error' %} bg-red-200 text-red-800 {% endif %}
+                    ">
+                    {{ message }}
+                    </div>
+                {% endfor %}
+                </div>
+            {% endif %}
+        {% endwith %}
+        {% block content %}{% endblock %}
+        <script src="{{ url_for('static', filename='js/scripts.js') }}"></script>
+    </body>
+</html>

@@ -1,0 +1,22 @@
+<!--Navbar/header Section-->
+<div class="flex justify-between items-end h-16 ">
+    <a href="#">
+        <img src="/static/assets/img/DevRecipe.svg" alt="Dev Recipe logo" class="flex h-12">
+    </a>
+    <div class="flex gap-4 text-md">
+        {% if current_user.is_authenticated %}
+        <a href="{{ url_for('user_recipes')}}" class="hover:text-black/60">Recipes</a>
+        {% endif %}
+        <a href="{{ url_for('browse') }}" class="hover:text-black/60">Browse</a>
+        <a href="#" class="hover:text-black/60">About</a>
+    </div>
+    <div class="flex gap-4 text-md">
+        {% if not current_user.is_authenticated %}
+        <a href="#" class="show-login rounded-2xl border px-4  hover:text-black/60 hover:shadow-lg">Log In</a>
+        <a href="#" id="show-register" class="bg-black text-white rounded-2xl border px-4 hover:shadow-lg ">Sign Up →</a>
+        {% else %}
+        <a href="{{ url_for('home') }}" class="bg-black text-white rounded-2xl border px-4 hover:shadow-lg">Logout</a>
+    </div>
+</div>
+<!--Divider-->
+<hr class="border-0 border-t-2 border-black/20  my-4 w-full rounded-4xl">

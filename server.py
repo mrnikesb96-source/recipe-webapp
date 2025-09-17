@@ -6,6 +6,7 @@ from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy.exc import SQLAlchemyError
 from sqlalchemy.orm import relationship, DeclarativeBase,Mapped, mapped_column
 from sqlalchemy import Integer,String,Text,ForeignKey
+from werkzeug.security import generate_password_hash, check_password_hash
 from forms import *
 
 load_dotenv()
@@ -77,19 +78,73 @@ def unpack_ingredients(fieldlist:FieldList):
             list_.append(new_ingredient)
     return list_
 
+def render_with_overlays(template, **context):
+    """
+    Wrapper around render_template that always injects
+    login/register forms and overlay toggle variable.
+    """
+    return render_template(
+        template,
+        login_form=LoginForm(),
+        register_form=RegisterForm(),
+        show_login_overlay=False,
+        show_register_overlay=False,
+        **context  # merge in any extra context unique to this page
+    )
+
 
 @login_manager.user_loader
 def load_user(user_id):
     return db.session.get(User,int(user_id))  
 
 
-@app.route("/")
+@app.route("/", methods=["POST","GET"])
 def home():
-    return render_template("index.html")
+    login_form = LoginForm()
+    register_form = RegisterForm()
+    if register_form.validate_on_submit():
+        user_email = register_form.email.data
+        user_password = register_form.password.data
+        existing_acc = db.session.execute(db.select(User).where(getattr(User,"email") == user_email)).scalar()
+        if not existing_acc:
+            hashed_pass = generate_password_hash(user_password,"pbkdf2:sha256",salt_length=8)
+            try:
+                new_user = User(email=user_email,password=hashed_pass)
+                db.session.add(new_user)
+                db.session.commit()
+                flash("Welcome! Sign-in","success")
+                return render_with_overlays("index.html",show_login_overlay=True)
+            except SQLAlchemyError:
+                db.session.rollback()
+                flash("Sorry an error occurred during account creation, try again later.","danger")
+                return render_with_overlays("index",show_register_overlay=True)
+                
+        else:
+            flash("Sorry this email is already registerd", "danger")
+            return render_with_overlays("index.html",show_register_overlay=True)
+    elif login_form.validate_on_submit():
+        submitted_email = login_form.email.data
+        submitted_password = login_form.password.data
+        user = db.session.execute(db.select(User).where(User.email==submitted_email)).scalar()
+        if user:
+            valid = check_password_hash(user.password,submitted_password)
+            if valid:
+                login_user(user)
+                flash("Welcome Back!","success")
+                return render_with_overlays("recipe.html")
+            else:
+                flash("Email not found","danger")
+                return render_with_overlays("index.html",show_login_overlay=True)
+    return render_with_overlays("index.html")
 
 
+@app.route("/browse")
+def browse():
+    return render_with_overlays("browse.html")
 
-
+@app.route("/recipes",methods=["POST","GET"])
+def recipes():
+    return render_with_overlays("recipe.html")
 
 
 

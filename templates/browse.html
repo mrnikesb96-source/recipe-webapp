@@ -1,46 +1,5 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <title>{% block title %}DevFitness{% endblock %}</title>
-        <link 
-            rel="icon"
-            type="image/x-icon"
-            href="{{ url_for('static',filename='assets/DevFitness_favicon.ico') }}"
-        >
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
-        <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-        <style>
-            /* Custom Tailwind-like class for text outline */
-            .material-symbols-outlined {
-            font-variation-settings:
-            'FILL' 0,
-            'wght' 300,
-            'GRAD' 0,
-            'opsz' 24
-            }
-        </style>
-    </head>
-    <body class="h-full">
-        <div class="flex flex-col px-8 pb-4 justify-between">
-            <!--Navbar/header Section-->
-            <div class="flex justify-between items-end h-16 mb-2">
-                <a href="#">
-                    <img src="/static/assets/img/DevRecipe.svg" alt="Dev Recipe logo" class="flex h-12">
-                </a>
-                <div class="flex gap-4 text-md">
-                    <a href="#" class="hover:text-black/60">Recipes</a>
-                    <a href="#" class="hover:text-black/60">Browse</a>
-                    <a href="#" class="hover:text-black/60">About</a>
-                </div>
-                <div class="flex gap-4 text-md">
-                    <a href="#" class="rounded-2xl border px-4  hover:text-black/60 hover:shadow-lg">Log In</a>
-                    <a href="#"class="bg-black text-white rounded-2xl border px-4 hover:shadow-lg ">Sign Up →</a>
-                </div>
-            </div>
-            <!--Divider-->
-            <hr class="border-0 border-t-2 border-black/20 w-full mt-4 rounded-4xl">
-        </div>
+{% extends 'base.html' %}
+    {% block content %}
         <div class="flex h-70 mx-8 bg-[url('/static/assets/img/spaghetti_cover.jpg')] bg-cover bg-[-0px_-50px] rounded-2xl justify-end items-center">
             <h1 class="text-white text-4xl font-semibold mr-6 z-10">
                 Explore<br>My Faves
@@ -156,5 +115,4 @@
                 
             </a>
         </div>
-    </body>
-</html>
+    {% endblock %}

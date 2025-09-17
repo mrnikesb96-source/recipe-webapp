@@ -9,12 +9,12 @@ class RegisterForm(FlaskForm):
     confirm_password = PasswordField(
         "Confirm Password",validators=[DataRequired(),
                                        EqualTo("password",message="Password must match")])
-    submit = SubmitField("Sign up")
+    
 
 class LoginForm(FlaskForm):
     email = EmailField("Email", validators=[DataRequired()])
     password = PasswordField("Password",validators=[DataRequired()])
-    submit = SubmitField("Sign In")
+    
 
 class IngredientForm(FlaskForm):
     name = StringField("Ingredient",validators=[DataRequired()])
